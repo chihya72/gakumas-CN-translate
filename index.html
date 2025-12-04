@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学园偶像大师汉化分享 - 制作人(P)专用补丁站</title>
+    <title>学园偶像大师汉化分享站</title>
     <style>
         :root {
             --primary-color: #ff8c00; /* 学园偶像大师标志性橙色 */
@@ -17,6 +17,7 @@
             --baidu-color: #06a7ff;
             --ali-color: #6c63ff;
             --bilibili-pink: #fb7299; /* B站粉色 */
+            --github-color: #24292e; /* GitHub黑色 */
         }
 
         body {
@@ -33,8 +34,7 @@
 
         /* 顶部大图 (Hero Section) */
         .hero {
-            /* ⚠️这里需要一张横向的大图 */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1920x600?text=Gakuen+Idolmaster+Key+Visual') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('intro_pic.webp') no-repeat center center/cover;
             height: 500px;
             display: flex;
             align-items: center;
@@ -78,6 +78,14 @@
         .btn-bili {
             background-color: var(--bilibili-pink);
             width: auto; /* B站按钮宽度自适应 */
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+
+        .btn-github {
+            background-color: var(--github-color);
+            width: auto;
             padding: 8px 25px;
             border-radius: 20px;
             font-size: 0.95rem;
@@ -331,7 +339,7 @@
         /* 鸣谢与交流板块样式 */
         .credit-container {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 3fr 2fr;
             gap: 2rem;
         }
 
@@ -343,8 +351,8 @@
         }
 
         .special-thanks {
-            border-left: 5px solid var(--bilibili-pink);
-            background-color: #fffafb;
+            border-left: 5px solid var(--primary-color);
+            background-color: #fff9f0;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             border-radius: 5px;
@@ -364,6 +372,31 @@
             font-size: 0.9rem;
             color: #555;
         }
+        
+        .contributor-tag-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #555;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        
+        .contributor-tag-link:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        .contributor-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
         .group-item {
             display: flex;
@@ -378,7 +411,26 @@
         }
 
         .group-name { font-weight: bold; }
-        .group-id { color: var(--primary-color); font-family: monospace; font-size: 1.1rem;}
+        .group-id { 
+            color: var(--primary-color); 
+            font-family: "Microsoft YaHei", "SimHei", sans-serif; 
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.2s, transform 0.1s;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        
+        .group-id:hover {
+            background-color: #ffe0b2;
+            transform: scale(1.05);
+        }
+        
+        .group-id:active {
+            transform: scale(0.98);
+        }
 
         /* 页脚 */
         footer {
@@ -419,7 +471,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>让偶像们的歌声<br>跨越语言的障碍</h1>
-            <p>学园偶像大师 (Gakuen Idolmaster) 最新汉化补丁发布与安装指引</p>
+            <p>学园偶像大师 (学園アイドルマスター) 最新汉化补丁发布与安装指引</p>
             <a href="#download" class="btn btn-main">立即获取汉化</a>
         </div>
     </section>
@@ -457,7 +509,7 @@
                 <span class="version-icon">💻</span>
                 <h3>PC (DMM版) 汉化</h3>
                 <p>适用于 DMM Player 版本的学园偶像大师。</p>
-                <p style="color: #666; font-size: 0.9rem;">版本：v1.0.5 (2025.12)</p>
+                <p style="color: #666; font-size: 0.9rem;">插件版本：v3.1.0</p>
                 
                 <div class="download-group">
                     <p style="margin:0; color:#666; font-size:0.9rem;">注意：PC版需下载<strong>插件本体</strong>以及<strong>资源更新</strong>！</p>
@@ -471,16 +523,16 @@
             <!-- 安卓版卡片 -->
             <div class="card">
                 <span class="version-icon">📱</span>
-                <h3>Android 汉化</h3>
-                <p>适用于安卓手机端 (APK直装版)。</p>
-                <p style="color: #666; font-size: 0.9rem;">版本：v1.0.5 (2025.12)</p>
+                <h3>安卓版 汉化</h3>
+                <p>适用于安卓手机端的学园偶像大师。</p>
+                <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">游戏版本：v2.6.2 | 插件版本：v3.1.0</p>
 
                 <div class="download-group">
                     <p style="margin:0; color:#666; font-size:0.9rem;">注意：安卓版需安装<strong>两个APK</strong>（插件 + 修补版游戏本体）！</p>
                     <!-- 网盘：Android 插件与游戏本体 APK -->
                     <a href="https://pan.baidu.com/s/1e2eYdETvL4pbYMkHFw4okg?pwd=k9e9" target="_blank" class="btn btn-baidu">百度网盘下载</a>
                     <a href="https://www.aliyundrive.com" target="_blank" class="btn btn-ali">阿里云盘下载（备用）</a>
-                    <a href="tutorial_android.html" class="btn btn-main" style="width:auto; margin-top:10px;">📘 查看Android安装教程</a>
+                    <a href="tutorial_android.html" class="btn btn-main" style="width:auto; margin-top:10px;">📘 查看安卓安装教程</a>
                 </div>
             </div>
         </div>
@@ -494,8 +546,14 @@
             <!-- 左侧：鸣谢名单 -->
             <div class="credit-box">
                 <div class="special-thanks">
-                    <h3 style="margin-top:0; color: #fb7299;">特别鸣谢</h3>
-                    <p>感谢 <strong>B站学园偶像大师同好会</strong> 提供高质量的剧情翻译支持！</p>
+                    <h3 style="margin-top:0; color: var(--primary-color);">特别鸣谢</h3>
+                    <p>感谢作者 <strong>chinosk</strong> 开发的汉化工具！</p>
+                    <div style="margin-top: 15px;">
+                        <a href="https://github.com/chinosk6" target="_blank" class="btn btn-github">
+                            🔧 访问 GitHub 仓库
+                        </a>
+                    </div>
+                    <p style="margin-top: 20px;">感谢 <strong>B站学园偶像大师同好会</strong> 提供高质量的剧情翻译支持！</p>
                     <div style="margin-top: 15px;">
                         <a href="https://space.bilibili.com/2546078" target="_blank" class="btn btn-bili">
                             📺 访问 Bilibili 主页
@@ -507,38 +565,45 @@
                 <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">感谢以下大佬的技术支持与文本校对：</p>
                 <div class="contributor-list">
                     <!-- ⚠️请在这里修改贡献者名字 -->
-                    <span class="contributor-tag">其他人员A</span>
-                    <span class="contributor-tag">其他人员B</span>
-                    <span class="contributor-tag">其他人员C</span>
-                    <span class="contributor-tag">其他人员D</span>
+                    <a href="https://space.bilibili.com/25082845" target="_blank" class="contributor-tag-link">
+                        <img src="https://i1.hdslb.com/bfs/face/e5166d476e19b57e714d26f182455083248d7558.jpg@128w_128h_1c_1s.webp" alt="-病毒-" class="contributor-avatar">
+                        <span>-病毒-</span>
+                    </a>
+                    <a href="https://space.bilibili.com/6688957" target="_blank" class="contributor-tag-link">
+                        <img src="https://i1.hdslb.com/bfs/face/aac6368b23e673cc83c540b771c62c6582c79ec9.jpg@128w_128h_1c_1s.webp" alt="煉金術式" class="contributor-avatar">
+                        <span>煉金術式</span>
+                    </a>
+                    <a href="https://space.bilibili.com/1726354044" target="_blank" class="contributor-tag-link">
+                        <img src="https://i1.hdslb.com/bfs/face/67cb67c6dc99ba27101fa0ccb2d8dcb6df38d802.jpg@128w_128h_1c_1s.webp" alt="芹菜P" class="contributor-avatar">
+                        <span>芹菜P</span>
+                    </a>
                     <span class="contributor-tag">And more...</span>
                 </div>
             </div>
 
             <!-- 右侧：交流群 -->
             <div class="group-box">
-                <h3 style="margin-top: 0;">加入组织</h3>
+                <h3 style="margin-top: 0;">加入群聊</h3>
                 <p style="font-size: 0.9rem; color: #666;">反馈BUG或吹水交流 (入群请注明来源)</p>
                 
                 <div class="group-item">
-                    <span class="group-name">交流群 A</span>
-                    <div>
-                        <span class="group-id">12345678</span>
-                        <button class="copy-btn" onclick="copyToClipboard('12345678', this)">复制</button>
-                    </div>
+                    <span class="group-name">1群 初星高等职业技术学院教务处</span>
+                    <span class="group-id" onclick="copyGroupNumber('975854705', this)">975854705</span>
                 </div>
                 <div class="group-item">
-                    <span class="group-name">交流群 B</span>
-                    <div>
-                        <span class="group-id">87654321</span>
-                        <button class="copy-btn" onclick="copyToClipboard('87654321', this)">复制</button>
-                    </div>
+                    <span class="group-name">2群 初星学院学历提升中心</span>
+                    <span class="group-id" onclick="copyGroupNumber('366734369', this)">366734369</span>
                 </div>
                 <div class="group-item">
-                    <span class="group-name">交流群 C</span>
-                    <div>
-                        <span class="group-id">11223344</span>
-                        <button class="copy-btn" onclick="copyToClipboard('11223344', this)">复制</button>
+                    <span class="group-name">3群 待定</span>
+                    <span class="group-id" onclick="copyGroupNumber(' ', this)"></span>
+                </div>
+                
+                <div style="margin-top: 20px; padding-top: 15px; border-top: 2px solid #eee;">
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">如果有爱好者想共同参与汉化可以加入：</p>
+                    <div class="group-item" style="border-bottom: none;">
+                        <span class="group-name">初星学园烤肉铺</span>
+                        <span class="group-id" onclick="copyGroupNumber('964823191', this)">964823191</span>
                     </div>
                 </div>
             </div>
@@ -621,6 +686,24 @@
             }).catch(err => {
                 console.error('复制失败: ', err);
                 alert('复制失败，请手动复制。');
+            });
+        }
+        
+        // 群号点击复制功能
+        function copyGroupNumber(number, element) {
+            navigator.clipboard.writeText(number).then(() => {
+                const originalText = element.textContent;
+                element.textContent = '✓ 已复制';
+                element.style.backgroundColor = '#4CAF50';
+                element.style.color = 'white';
+                setTimeout(() => {
+                    element.textContent = originalText;
+                    element.style.backgroundColor = '';
+                    element.style.color = '';
+                }, 1500);
+            }).catch(err => {
+                console.error('复制失败: ', err);
+                alert('复制失败，请手动复制: ' + number);
             });
         }
     </script>
