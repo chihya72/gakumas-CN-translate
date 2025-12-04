@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PC (DMM) 安装教程 - 学园偶像大师汉化</title>
+<style>
+  :root {
+    --primary-color: #ff8c00;
+    --text-dark: #333;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  body {font-family:"Microsoft YaHei","PingFang SC",sans-serif;margin:0;background:#f9f9f9;color:var(--text-dark)}
+  .container {max-width:1200px;margin:0 auto;padding:2rem 1rem}
+  h1 {color:var(--primary-color);margin:0 0 1rem}
+  .step {background:var(--white);border-radius:10px;box-shadow:var(--shadow);padding:1.5rem;margin-bottom:1.5rem}
+  .step-num {background:var(--primary-color);color:#fff;width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;margin-right:10px}
+  .step-title {display:inline-block;font-weight:700}
+  .note {color:#666;font-size:0.9rem}
+  .back {display:inline-block;margin-top:1rem;color:var(--primary-color);text-decoration:none}
+
+  /* 复用主站图片容器与灯箱 */
+  .step-img-placeholder {width:100%;max-width:820px;background:#f7f7f7;margin-top:10px;border-radius:8px;box-shadow:var(--shadow);display:block;overflow:hidden}
+  .step-img-placeholder img {width:100%;height:auto;display:block;cursor:zoom-in}
+  .lightbox-overlay {position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:2000}
+  .lightbox-overlay.show {display:flex}
+  .lightbox-image {max-width:90vw;max-height:90vh;border-radius:10px;box-shadow:var(--shadow)}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<div class="container">
+<h1>PC (DMM) 安装教程</h1>
+<p class="note">请先在下载页获取插件与资源，再按以下步骤操作。</p>
+
+<div class="step">
+  <span class="step-num">1</span><span class="step-title">打开 1.插件本体.zip</span>
+  <p>压缩包内包含 <strong>gakumas-local/</strong> 与 <strong>version.dll</strong>。</p>
+  <div class="step-img-placeholder"><img src="tutorial_pc/step1.png" alt="打开插件压缩包"></div>
+</div>
+<div class="step">
+  <span class="step-num">2</span><span class="step-title">解压到游戏安装目录</span>
+  <p>将 <strong>gakumas-local/</strong> 与 <strong>version.dll</strong> 解压到与 <code>gkmas.exe</code> 同级的游戏根目录。</p>
+  <div class="step-img-placeholder"><img src="tutorial_pc/step2.png" alt="解压到根目录"></div>
+</div>
+<div class="step">
+  <span class="step-num">3</span><span class="step-title">准备最新资源包</span>
+  <p>打开 <strong>2.资源更新</strong> 的最新版资源压缩包，确认其中包含 <strong>local-files/</strong>。</p>
+  <div class="step-img-placeholder"><img src="tutorial_pc/step3.png" alt="资源包结构"></div>
+</div>
+<div class="step">
+  <span class="step-num">4</span><span class="step-title">将资源覆盖到插件目录</span>
+  <p>打开刚解压的 <strong>gakumas-local/</strong>，将资源压缩包中的 <strong>local-files/</strong> 解压进来并选择覆盖。</p>
+  <div class="step-img-placeholder"><img src="tutorial_pc/step4.png" alt="覆盖资源"></div>
+</div>
+<div class="step">
+  <span class="step-num">5</span><span class="step-title">汉化资源更新方法</span>
+  <p>如果需要对 PC 版汉化资源进行更新，既可以参照上面第3、第4步，下载最新资源包手动替换，也可以直接在游戏内更新。</p>
+  <p><strong>游戏内更新方法：</strong></p>
+  <p>在游戏彻底启动后，按下 <kbd>Ctrl + U</kbd> 组合键，出现如图所示的弹窗。在弹窗中完成最新资源包更新后，重启游戏即可体验最新汉化资源。</p>
+  <div class="step-img-placeholder"><img src="tutorial_pc/step5.png" alt="游戏内更新"></div>
+</div>
+
+<hr style="margin: 3rem 0; border: none; border-top: 2px dashed #ddd;">
+
+<h1 style="margin-top: 2rem;">开启图片替换汉化</h1>
+<p class="note" style="background:#fff3cd;padding:1rem;border-left:4px solid #ffc107;border-radius:5px;margin-bottom:1.5rem">
+  <strong>⚠️ 特别注意：</strong>图片替换功能为<strong>实验性功能</strong>，可能会导致游戏卡顿、加载缓慢或其他性能问题。<br>
+  如遇到游戏运行不流畅的情况，建议关闭此功能。<strong>非必要情况下不建议开启。</strong>
+</p>
+
+<div class="step">
+  <span class="step-num">SP1</span><span class="step-title">打开配置文件</span>
+  <p>打开游戏根目录下的 <strong>gakumas-local</strong> 文件夹，找到 <code>localizationConfig.json</code> 并用记事本或其他文本编辑器打开。</p>
+  <div class="step-img-placeholder"><img src="tutorial_pc/sp1.png" alt="打开配置文件"></div>
+</div>
+
+<div class="step">
+  <span class="step-num">SP2</span><span class="step-title">修改配置项</span>
+  <p>在 <code>localizationConfig.json</code> 的最后一行找到 <code>"enableTextureReplace"</code>，将值从 <code>false</code> 修改为 <code>true</code> 并保存文件。重新启动游戏即可开启图片替换功能。</p>
+  <div class="step-img-placeholder"><img src="tutorial_pc/sp2.png" alt="修改配置"></div>
+</div>
+
+<div class="step">
+  <span class="step-num">SP3</span><span class="step-title">功能对比</span>
+  <p>下图为开启图片替换功能前后的对比效果。开启后，游戏内的部分图片将替换为中文版本。</p>
+  <div class="step-img-placeholder"><img src="tutorial_pc/sp3.png" alt="功能对比"></div>
+</div>
+
+<a class="back" href="index.html">← 返回主页</a>
+</div>
+<script>
+  // 加载共享头部组件
+  (function(){
+    var s = document.createElement('script');
+    s.src = 'shared/header.js';
+    document.body.appendChild(s);
+  })();
+  // 轻量灯箱，用于放大查看图片（与主站一致）
+  (function(){
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    const img = document.createElement('img');
+    img.className = 'lightbox-image';
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
+    function openLightbox(src){img.src = src; overlay.classList.add('show');}
+    function closeLightbox(){overlay.classList.remove('show'); img.src='';}
+    overlay.addEventListener('click', closeLightbox);
+    document.querySelectorAll('.step-img-placeholder img').forEach(el=>{
+      el.addEventListener('click', ()=>openLightbox(el.src));
+    });
+  })();
+</script>
+</body>
+</html>

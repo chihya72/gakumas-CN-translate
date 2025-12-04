@@ -1,0 +1,157 @@
+:root {
+  --primary-color: #ff8c00;
+  --text-dark: #333;
+  --white: #fff;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --container-max: 1200px;
+  --header-height: 60px;
+}
+
+/* 
+  美化共享头部样式
+  - 使用 sticky 定位，优化滚动体验
+  - 添加毛玻璃效果 (backdrop-filter)
+  - 调整内外边距和品牌文字样式
+  - 优化链接悬停效果和下拉菜单
+*/
+.site-header {
+  position: fixed; /* 改为 fixed，使其始终悬浮在视口顶部 */
+  top: 0;
+  left: 0; /* 从左侧0开始 */
+  right: 0; /* 延伸到右侧0 */
+  width: 100%; /* 宽度为100% */
+  height: var(--header-height);
+  background: rgba(255, 255, 255, 0.8); /* 半透明背景 */
+  backdrop-filter: blur(10px); /* 毛玻璃效果 */
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  height: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem; /* 增加左右内边距 */
+}
+
+.brand a {
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: 1.25rem; /* 放大品牌文字 */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.brand a:hover {
+  color: #e67e00;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem; /* 增加链接间距 */
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.2s;
+}
+
+/* 添加下划线悬停效果 */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown .dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px); /* 增加与顶部的距离 */
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  display: none;
+  min-width: 180px; /* 增宽下拉菜单 */
+  padding: 0.5rem;
+  border: 1px solid #eee;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: #f9f9f9;
+  color: var(--primary-color);
+}
+
+/* 移除 a 标签自带的下划线效果 */
+.dropdown-menu a::after {
+  display: none;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 移动端响应式样式 */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem; /* 减少左右内边距 */
+  }
+  
+  .brand a {
+    font-size: 1rem; /* 缩小品牌文字 */
+  }
+  
+  .nav-links {
+    gap: 0.8rem; /* 减少链接间距 */
+  }
+  
+  .nav-links a {
+    font-size: 0.9rem; /* 缩小字体 */
+    padding: 0.5rem 0.3rem; /* 减少内边距 */
+    white-space: nowrap; /* 防止换行 */
+  }
+}

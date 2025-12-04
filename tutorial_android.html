@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Android 安装教程 - 学园偶像大师汉化</title>
+<style>
+  :root {
+    --primary-color: #ff8c00;
+    --text-dark: #333;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  body {font-family:"Microsoft YaHei","PingFang SC",sans-serif;margin:0;background:#f9f9f9;color:var(--text-dark)}
+  .container {max-width:1200px;margin:0 auto;padding:2rem 1rem}
+  h1 {color:var(--primary-color);margin:0 0 1rem}
+  .step {background:var(--white);border-radius:10px;box-shadow:var(--shadow);padding:1.5rem;margin-bottom:1.5rem}
+  .step-num {background:var(--primary-color);color:#fff;width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;margin-right:10px}
+  .step-title {display:inline-block;font-weight:700}
+  .note {color:#666;font-size:0.9rem}
+  .back {display:inline-block;margin-top:1rem;color:var(--primary-color);text-decoration:none}
+
+  /* 复用主站图片容器与灯箱 */
+  .step-img-placeholder {width:100%;max-width:820px;background:#f7f7f7;margin-top:10px;border-radius:8px;box-shadow:var(--shadow);display:block;overflow:hidden}
+  .step-img-placeholder img {width:100%;height:auto;display:block;cursor:zoom-in}
+  .lightbox-overlay {position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:2000}
+  .lightbox-overlay.show {display:flex}
+  .lightbox-image {max-width:90vw;max-height:90vh;border-radius:10px;box-shadow:var(--shadow)}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+<div class="container">
+<h1>Android 安装教程</h1>
+<p class="note" style="background:#fff3cd;padding:1rem;border-left:4px solid #ffc107;border-radius:5px;margin-bottom:1.5rem">
+  <strong>⚠️ 特别注意：</strong>因为游戏本体 APK 是经过修补处理的，部分手机在安装时可能会提示"包含病毒"或"不安全"。<br>
+  <strong>请放心安装！</strong>本汉化补丁仅修改游戏资源文件，<strong>不包含任何病毒、木马或恶意代码</strong>，不会窃取您的个人信息或造成任何安全问题。此类提示是因为修改了原始 APK 签名所致，属于正常现象。
+</p>
+<p class="note">Android 需安装两个 APK：<strong>Localify 插件 APK</strong> + <strong>修补版游戏本体 APK</strong>。请先在下载页获取这两个文件。</p>
+
+<div class="step">
+  <span class="step-num">1</span><span class="step-title">安装 APK 并获取最新翻译资源</span>
+  <p>下载并安装 <strong>Localify 插件 APK</strong> 和 <strong>修补版游戏本体 APK</strong>（允许"未知来源应用"）。安装完成后，打开 Localify 插件，如图所示进行操作，获取最新翻译资源。</p>
+  <div class="step-img-placeholder"><img src="tutorial_android/step1.png" alt="打开Localify插件获取资源"></div>
+</div>
+
+<div class="step">
+  <span class="step-num">2</span><span class="step-title">等待资源下载并启动游戏</span>
+  <p>耐心等待最新资源下载完成后，点击右下角按钮启动游戏。</p>
+  <p class="note" style="margin-top:0.5rem">💡 <strong>提示：</strong>平时不需要更新资源的时候，可以直接点击游戏本体图标启动，无需通过插件。</p>
+  <div class="step-img-placeholder"><img src="tutorial_android/step2.png" alt="等待下载完成并启动"></div>
+</div>
+
+<div class="step">
+  <span class="step-num">3</span><span class="step-title">资源更新提示</span>
+  <p>如果有新资源发布，打开 Localify 插件时会有弹窗提示。点击"确定"会自动开始下载最新翻译资源。</p>
+  <div class="step-img-placeholder"><img src="tutorial_android/step3.png" alt="资源更新提示"></div>
+</div>
+
+<div class="step">
+  <span class="step-num">4</span><span class="step-title">等待游戏加载翻译资源包</span>
+  <p>首次启动或更新资源后，游戏会加载翻译资源包，请耐心等待。加载完成后即可正常游玩。</p>
+  <div class="step-img-placeholder"><img src="tutorial_android/step4.png" alt="加载资源包"></div>
+</div>
+
+<div class="step">
+  <span class="step-num">5</span><span class="step-title">开始体验中文版</span>
+  <p>安装完成！现在你可以开始体验中文版的学园偶像大师了。祝您游戏愉快！🎉</p>
+  <div class="step-img-placeholder"><img src="tutorial_android/step5.png" alt="开始游戏"></div>
+</div>
+
+<a class="back" href="index.html">← 返回主页</a>
+</div>
+<script>
+  // 加载共享头部组件
+  (function(){
+    var s = document.createElement('script');
+    s.src = 'shared/header.js';
+    document.body.appendChild(s);
+  })();
+  // 轻量灯箱（与主站一致）用于放大查看图片
+  (function(){
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    const img = document.createElement('img');
+    img.className = 'lightbox-image';
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
+    function openLightbox(src){img.src = src; overlay.classList.add('show');}
+    function closeLightbox(){overlay.classList.remove('show'); img.src='';}
+    overlay.addEventListener('click', closeLightbox);
+    document.querySelectorAll('.step-img-placeholder img').forEach(el=>{
+      el.addEventListener('click', ()=>openLightbox(el.src));
+    });
+  })();
+</script>
+</body>
+</html>

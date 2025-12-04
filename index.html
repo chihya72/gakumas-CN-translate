@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学园偶像大师汉化分享 - 制作人(P)专用补丁站</title>
+    <style>
+        :root {
+            --primary-color: #ff8c00; /* 学园偶像大师标志性橙色 */
+            --secondary-color: #ffe0b2;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            
+            /* 品牌颜色定义 */
+            --baidu-color: #06a7ff;
+            --ali-color: #6c63ff;
+            --bilibili-pink: #fb7299; /* B站粉色 */
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* 导航栏样式由 shared/header.css 提供，移除本页重复样式以确保一致 */
+
+        /* 顶部大图 (Hero Section) */
+        .hero {
+            /* ⚠️这里需要一张横向的大图 */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://via.placeholder.com/1920x600?text=Gakuen+Idolmaster+Key+Visual') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* 基础按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.2s, opacity 0.2s;
+            margin: 5px 0;
+            width: 80%; /* 按钮宽度 */
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .btn-baidu { background-color: var(--baidu-color); }
+        .btn-ali { background-color: var(--ali-color); }
+        
+        .btn-bili {
+            background-color: var(--bilibili-pink);
+            width: auto; /* B站按钮宽度自适应 */
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+
+        .btn-main {
+            background-color: var(--primary-color);
+            border-radius: 25px;
+            padding: 12px 30px;
+            width: auto;
+        }
+
+        /* 新增：一键复制按钮 */
+        .copy-btn {
+            background: #e0e0e0;
+            color: #555;
+            border: none;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 8px;
+            font-family: "Microsoft YaHei", sans-serif;
+            transition: background-color 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #ccc;
+        }
+        
+        .copy-btn.copied {
+            background: #4CAF50; /* 绿色 */
+            color: white;
+        }
+
+        /* 新增：返回顶部按钮 */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 20px;
+            line-height: 40px;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            transform: translateY(20px);
+            z-index: 100;
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        #back-to-top:hover {
+            opacity: 0.8;
+        }
+
+        /* 动画效果 */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 通用容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        /* 介绍部分 */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .intro-img {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .intro-img img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* 预览视频样式（竖屏1080x1900兼容）*/
+        .intro-img video {
+            height: 800px;          /* 固定展示高度 */
+            max-height: 800px;      /* 限制最大高度不超过800px */
+            max-width: 100%;        /* 小屏自适应缩放 */
+            width: auto;            /* 按比例自适应宽度 */
+            object-fit: contain;    /* 完整显示视频，不裁切 */
+            border-radius: 10px;    /* 圆角应用到视频本身 */
+            box-shadow: var(--shadow); /* 阴影应用到视频本身 */
+            display: block;
+        }
+
+        /* 下载板块 */
+        .download-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            border-top: 5px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .version-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .download-group {
+            width: 100%;
+            margin-top: 1.5rem;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .code-box {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* 教程部分 */
+        .tutorial-step {
+            display: flex;
+            margin-bottom: 3rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-right: 1.5rem;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-img-placeholder {
+            width: 100%;
+            max-width: 720px;            /* 更贴近原图宽度展示 */
+            background-color: #f7f7f7;
+            margin-top: 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: block;
+            overflow: hidden;
+        }
+
+        .step-img-placeholder img {
+            width: 100%;               /* 自适应宽度 */
+            height: auto;              /* 维持原图比例 */
+            display: block;
+            cursor: zoom-in;           /* 提示可点击放大 */
+        }
+
+        /* 简易灯箱样式 */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .lightbox-overlay.show { display: flex; }
+
+        .lightbox-image {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        /* 鸣谢与交流板块样式 */
+        .credit-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .credit-box, .group-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .special-thanks {
+            border-left: 5px solid var(--bilibili-pink);
+            background-color: #fffafb;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+        }
+
+        .contributor-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .contributor-tag {
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .group-item:last-child {
+            border-bottom: none;
+        }
+
+        .group-name { font-weight: bold; }
+        .group-id { color: var(--primary-color); font-family: monospace; font-size: 1.1rem;}
+
+        /* 页脚 */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        footer p {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .intro-grid, .credit-container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .tutorial-step {
+                flex-direction: column;
+            }
+            .step-number {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="site-header"></div>
+
+    <!-- 首页大图区域 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>让偶像们的歌声<br>跨越语言的障碍</h1>
+            <p>学园偶像大师 (Gakuen Idolmaster) 最新汉化补丁发布与安装指引</p>
+            <a href="#download" class="btn btn-main">立即获取汉化</a>
+        </div>
+    </section>
+
+    <!-- 介绍区域 -->
+    <section id="intro" class="container fade-in-up">
+        <h2>关于汉化</h2>
+        <div class="intro-grid">
+            <div class="intro-text">
+                <h3>更好的培育体验</h3>
+                <p>本汉化补丁旨在帮助中文区“制作人”更好地理解剧情与技能卡片效果。汉化内容包括：</p>
+                <ul>
+                    <li>主线剧情与个人剧情（部分机翻+润色）</li>
+                    <li>育成中的技能卡片、P道具详细说明</li>
+                    <li>S-SSR 支援卡技能描述</li>
+                    <li>系统界面UI中文化</li>
+                </ul>
+                <p style="font-size: 0.9rem; color: #888;">注意：本项目为粉丝用爱发电，非官方制作。请支持官方正版。</p>
+            </div>
+            <div class="intro-img">
+                <!-- 预览视频：静音自动播放（竖屏1080x1900） -->
+                <video src="./video.webm" autoplay muted loop playsinline poster="https://via.placeholder.com/600x400?text=Gakumas+Preview">
+                    您的浏览器不支持视频播放，请更新浏览器或查看静态预览图。
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载区域 -->
+    <section id="download" class="container fade-in-up" style="background-color: #fffaf0;">
+        <h2>汉化下载</h2>
+        <div class="download-cards">
+            <!-- PC版卡片 -->
+            <div class="card">
+                <span class="version-icon">💻</span>
+                <h3>PC (DMM版) 汉化</h3>
+                <p>适用于 DMM Player 版本的学园偶像大师。</p>
+                <p style="color: #666; font-size: 0.9rem;">版本：v1.0.5 (2025.12)</p>
+                
+                <div class="download-group">
+                    <p style="margin:0; color:#666; font-size:0.9rem;">注意：PC版需下载<strong>插件本体</strong>以及<strong>资源更新</strong>！</p>
+                    <!-- 网盘：PC 插件压缩包（含提取码） -->
+                    <a href="https://pan.baidu.com/s/14YjdeS0fjl6CC8pb2cuVmw?pwd=1ua1" target="_blank" class="btn btn-baidu">百度网盘下载</a>
+                    <a href="https://www.aliyundrive.com" target="_blank" class="btn btn-ali">阿里云盘下载（备用）</a>
+                    <a href="tutorial_pc.html" class="btn btn-main" style="width:auto; margin-top:10px;">📘 查看PC安装教程</a>
+                </div>
+            </div>
+
+            <!-- 安卓版卡片 -->
+            <div class="card">
+                <span class="version-icon">📱</span>
+                <h3>Android 汉化</h3>
+                <p>适用于安卓手机端 (APK直装版)。</p>
+                <p style="color: #666; font-size: 0.9rem;">版本：v1.0.5 (2025.12)</p>
+
+                <div class="download-group">
+                    <p style="margin:0; color:#666; font-size:0.9rem;">注意：安卓版需安装<strong>两个APK</strong>（插件 + 修补版游戏本体）！</p>
+                    <!-- 网盘：Android 插件与游戏本体 APK -->
+                    <a href="https://pan.baidu.com/s/1e2eYdETvL4pbYMkHFw4okg?pwd=k9e9" target="_blank" class="btn btn-baidu">百度网盘下载</a>
+                    <a href="https://www.aliyundrive.com" target="_blank" class="btn btn-ali">阿里云盘下载（备用）</a>
+                    <a href="tutorial_android.html" class="btn btn-main" style="width:auto; margin-top:10px;">📘 查看Android安装教程</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 鸣谢与交流区域 (新增) -->
+    <section id="community" class="container fade-in-up" style="background-color: #f4f4f4; border-radius: 20px;">
+        <h2>鸣谢与交流</h2>
+        
+        <div class="credit-container">
+            <!-- 左侧：鸣谢名单 -->
+            <div class="credit-box">
+                <div class="special-thanks">
+                    <h3 style="margin-top:0; color: #fb7299;">特别鸣谢</h3>
+                    <p>感谢 <strong>B站学园偶像大师同好会</strong> 提供高质量的剧情翻译支持！</p>
+                    <div style="margin-top: 15px;">
+                        <a href="https://space.bilibili.com/2546078" target="_blank" class="btn btn-bili">
+                            📺 访问 Bilibili 主页
+                        </a>
+                    </div>
+                </div>
+
+                <h3>汉化协力 / 贡献者</h3>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">感谢以下大佬的技术支持与文本校对：</p>
+                <div class="contributor-list">
+                    <!-- ⚠️请在这里修改贡献者名字 -->
+                    <span class="contributor-tag">其他人员A</span>
+                    <span class="contributor-tag">其他人员B</span>
+                    <span class="contributor-tag">其他人员C</span>
+                    <span class="contributor-tag">其他人员D</span>
+                    <span class="contributor-tag">And more...</span>
+                </div>
+            </div>
+
+            <!-- 右侧：交流群 -->
+            <div class="group-box">
+                <h3 style="margin-top: 0;">加入组织</h3>
+                <p style="font-size: 0.9rem; color: #666;">反馈BUG或吹水交流 (入群请注明来源)</p>
+                
+                <div class="group-item">
+                    <span class="group-name">交流群 A</span>
+                    <div>
+                        <span class="group-id">12345678</span>
+                        <button class="copy-btn" onclick="copyToClipboard('12345678', this)">复制</button>
+                    </div>
+                </div>
+                <div class="group-item">
+                    <span class="group-name">交流群 B</span>
+                    <div>
+                        <span class="group-id">87654321</span>
+                        <button class="copy-btn" onclick="copyToClipboard('87654321', this)">复制</button>
+                    </div>
+                </div>
+                <div class="group-item">
+                    <span class="group-name">交流群 C</span>
+                    <div>
+                        <span class="group-id">11223344</span>
+                        <button class="copy-btn" onclick="copyToClipboard('11223344', this)">复制</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>本网站仅供交流学习使用，所有游戏素材版权归 Bandai Namco 所有。</p>
+        <p>请勿用于商业用途。汉化补丁来自网络社区收集。</p>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <a href="#" id="back-to-top">↑</a>
+
+    <script>
+        // 加载共享头部组件
+        (function(){
+            var s = document.createElement('script');
+            s.src = 'shared/header.js';
+            document.body.appendChild(s);
+        })();
+
+        // 简易灯箱：点击教程图片放大
+        (function(){
+            const overlay = document.createElement('div');
+            overlay.className = 'lightbox-overlay';
+            const img = document.createElement('img');
+            img.className = 'lightbox-image';
+            overlay.appendChild(img);
+            document.body.appendChild(overlay);
+
+            function openLightbox(src){
+                img.src = src;
+                overlay.classList.add('show');
+            }
+
+            function closeLightbox(){
+                overlay.classList.remove('show');
+                img.src = '';
+            }
+
+            overlay.addEventListener('click', closeLightbox);
+            document.querySelectorAll('img.zoomable').forEach(el => {
+                el.addEventListener('click', () => openLightbox(el.src));
+            });
+        })();
+
+        // 返回顶部按钮的显示与隐藏
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        // 页面滚动动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 复制功能
+        function copyToClipboard(text, buttonElement) {
+            navigator.clipboard.writeText(text).then(() => {
+                buttonElement.textContent = '已复制!';
+                buttonElement.classList.add('copied');
+                setTimeout(() => {
+                    buttonElement.textContent = '复制';
+                    buttonElement.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('复制失败: ', err);
+                alert('复制失败，请手动复制。');
+            });
+        }
+    </script>
+
+</body>
+</html>
