@@ -1,0 +1,1 @@
+# gakumas-CN-translate
