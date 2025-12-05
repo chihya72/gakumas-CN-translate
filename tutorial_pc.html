@@ -18,7 +18,21 @@
   .step-num {background:var(--primary-color);color:#fff;width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:bold;margin-right:10px}
   .step-title {display:inline-block;font-weight:700}
   .note {color:#666;font-size:0.9rem}
-  .back {display:inline-block;margin-top:1rem;color:var(--primary-color);text-decoration:none}
+  .back {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .back:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
 
   /* 复用主站图片容器与灯箱 */
   .step-img-placeholder {width:100%;max-width:820px;background:#f7f7f7;margin-top:10px;border-radius:8px;box-shadow:var(--shadow);display:block;overflow:hidden}
@@ -26,6 +40,20 @@
   .lightbox-overlay {position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;z-index:2000}
   .lightbox-overlay.show {display:flex}
   .lightbox-image {max-width:90vw;max-height:90vh;border-radius:10px;box-shadow:var(--shadow)}
+
+  /* 页脚 */
+  footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+  }
+  
+  footer p {
+      font-size: 0.8rem;
+      color: #aaa;
+  }
 </style>
 </head>
 <body>
@@ -41,7 +69,7 @@
 </div>
 <div class="step">
   <span class="step-num">2</span><span class="step-title">解压到游戏安装目录</span>
-  <p>将 <strong>gakumas-local/</strong> 与 <strong>version.dll</strong> 解压到与 <code>gkmas.exe</code> 同级的游戏根目录。</p>
+  <p>将 <strong>gakumas-local/</strong> 与 <strong>version.dll</strong> 解压到与 <code>gakumas.exe</code> 同级的游戏根目录。</p>
   <div class="step-img-placeholder"><img src="tutorial_pc/step2.png" alt="解压到根目录"></div>
 </div>
 <div class="step">
@@ -90,6 +118,12 @@
 
 <a class="back" href="index.html">← 返回主页</a>
 </div>
+
+<footer>
+    <p>本站为《学园偶像大师》非官方中文爱好者网站，所有游戏素材版权归属万代南梦宫（Bandai Namco）所有，请勿用于任何商业用途。</p>
+    <p>本插件汉化内容由 chinosk、pm 与学园偶像大师同好会联合制作，旨在交流学习。如在使用中发现BUG或翻译问题，欢迎通过QQ群进行反馈提交。</p>
+</footer>
+
 <script>
   // 加载共享头部组件
   (function(){
