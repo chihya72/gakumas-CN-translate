@@ -7,6 +7,9 @@
   --header-height: 60px;
 }
 
+html {
+  scroll-behavior: smooth; /* 平滑滚动 */
+}
 /* 
   美化共享头部样式
   - 使用 sticky 定位，优化滚动体验

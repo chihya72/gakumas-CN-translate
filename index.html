@@ -432,6 +432,94 @@
             transform: scale(0.98);
         }
 
+        /* Q&A 手风琴样式 */
+        .accordion {
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: white;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            width: 100%;
+            background: white;
+            border: none;
+            padding: 1.25rem;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: background-color 0.2s;
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        }
+
+        .accordion-header:hover {
+            background-color: #f9f9f9;
+        }
+
+        .accordion-question {
+            flex: 1;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .accordion-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+            color: var(--text-dark);
+        }
+
+        .accordion-header[aria-expanded="true"] .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-top: 1px solid #ddd;
+        }
+
+        .accordion-body.show {
+            max-height: 1000px;
+        }
+
+        .accordion-content {
+            padding: 1rem 1.25rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .accordion-content p {
+            margin: 0.5rem 0;
+        }
+
+        .accordion-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .accordion-content a:hover {
+            text-decoration: underline;
+        }
+
         /* 页脚 */
         footer {
             background-color: #333;
@@ -535,6 +623,128 @@
                     <a href="https://pan.baidu.com/s/1e2eYdETvL4pbYMkHFw4okg?pwd=k9e9" target="_blank" class="btn btn-baidu">百度网盘下载</a>
                     <a href="https://www.123865.com/s/eTUnvd-DweDH?pwd=YbTd#" target="_blank" class="btn btn-ali">123云盘下载（备用）</a>
                     <a href="tutorial_android.html" class="btn btn-main" style="width:auto; margin-top:10px;">📘 查看安卓安装教程</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q&A 常见问题 -->
+    <section id="qa" class="container fade-in-up">
+        <h2>常见问题</h2>
+        <div class="accordion">
+            <!-- 问题1 -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-1">
+                    <span class="accordion-question">为什么我的一些非凡卡是空白的呢？</span>
+                    <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
+                    </svg>
+                </button>
+                <div id="qa-body-1" class="accordion-body">
+                    <div class="accordion-content">
+                        <p>这是由于官方在 7 月更新中修改了部分非凡卡的技能描述，导致旧版插件出现显示异常。<strong>新下载的插件不会有此问题。</strong></p>
+                        <p><strong>解决方法：</strong></p>
+                        <p><strong>安卓版：</strong></p>
+                        <p>1. 打开 Localify 插件，取消勾选"快速初始化"</p>
+                        <p>2. 勾选"清除游戏目录内的插件资源"</p>
+                        <p>3. 进入一次游戏后，重新点击"从服务器检查热更新资源"进行更新</p>
+                        <p style="color: #999; font-size: 0.9rem;">💡 如按上述方法仍无法解决，建议完全卸载插件和游戏后重新安装。</p>
+                        <p><strong>PC 版：</strong>前往 <a href="#download">下载页面</a> 获取 <strong>2.资源更新</strong> 中的最新汉化资源包并替换即可。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 问题2 -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-2">
+                    <span class="accordion-question">有 iOS/鸿蒙 版插件吗？</span>
+                    <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
+                    </svg>
+                </button>
+                <div id="qa-body-2" class="accordion-body">
+                    <div class="accordion-content">
+                        <p><strong>iOS：</strong>很遗憾，目前没有 iOS 版本的汉化插件。</p>
+                        <p>由于 iOS 系统的封闭性和安全限制，开发和分发汉化插件存在技术难度。如果您是 iOS 用户，可以考虑使用模拟器在 PC 上运行安卓版游戏。</p>
+                        <p style="margin-top: 1rem;"><strong>鸿蒙系统：</strong>理论上可以通过<strong>卓易通</strong>或 <strong>OurPlay</strong> 等软件安装并游玩安卓版汉化游戏。</p>
+                        <p style="color: #999; font-size: 0.9rem;">💡 <strong>注意：</strong>由于作者暂无鸿蒙设备进行测试，无法保证完全兼容。如果您使用鸿蒙设备成功运行游戏，欢迎加入 <a href="#community">交流群</a> 联系作者反馈，帮助我们完善教程！</p>
+                        <p style="margin-top: 1rem;">目前官方支持的平台：<strong>PC (DMM版)</strong> 和 <strong>安卓版</strong>。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 问题3 -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-3">
+                    <span class="accordion-question">PC 版在哪里下载？</span>
+                    <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
+                    </svg>
+                </button>
+                <div id="qa-body-3" class="accordion-body">
+                    <div class="accordion-content">
+                        <p>PC 版需要在 <strong>DMM Games</strong> 平台下载游戏本体。步骤如下：</p>
+                        <p>1. 访问 <a href="https://games.dmm.com/" target="_blank">DMM Games 官网</a>，注册账号（需要日本 IP）</p>
+                        <p>2. 搜索「学園アイドルマスター」并下载安装 DMM Game Player</p>
+                        <p>3. 在 Game Player 中下载并安装游戏</p>
+                        <p>4. 返回本站 <a href="#download">下载页面</a>，下载汉化插件并按照 <a href="tutorial_pc.html">PC 安装教程</a> 操作</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 问题4 -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-4">
+                    <span class="accordion-question">为什么进游戏一直 Loading？</span>
+                    <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
+                    </svg>
+                </button>
+                <div id="qa-body-4" class="accordion-body">
+                    <div class="accordion-content">
+                        <p>游戏启动时无限 Loading 的常见原因和解决方法：</p>
+                        <p><strong>1. 网络问题：</strong>游戏需要连接日本服务器，建议使用稳定的加速器或代理。</p>
+                        <p><strong>2. 正在更新游戏资源：</strong>游戏启动时会自动连接服务器检查更新。当有新内容发布时，会在 Loading 界面下载资源，此时请耐心等待下载完成。</p>
+                        <p><strong>3. 游戏进程卡住：</strong>游戏本身可能出现卡顿。<strong>PC 版</strong>直接关闭游戏重新启动即可；<strong>安卓版</strong>需要在后台完全关闭游戏进程（从最近任务中划掉），然后重新打开游戏。</p>
+                        <p>如问题仍未解决，请加入 <a href="#community">交流群</a> 寻求帮助。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 问题5 -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-5">
+                    <span class="accordion-question">PC 版的黑色弹窗可以隐藏吗？</span>
+                    <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
+                    </svg>
+                </button>
+                <div id="qa-body-5" class="accordion-body">
+                    <div class="accordion-content">
+                        <p>可以的！PC 版启动时的黑色控制台窗口（命令行窗口）可以隐藏。</p>
+                        <p><strong>方法：</strong>打开游戏根目录下的 <code>gakumas-local/config.json</code> 文件，找到 <code>"enableConsole"</code> 配置项，将值改为 <code>false</code>，保存后重启游戏。</p>
+                        <p><strong>注意：</strong>隐藏后将无法查看插件运行日志，如遇到问题需要排查时，建议重新开启控制台。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 问题6 -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-6">
+                    <span class="accordion-question">安卓版如果需要更新 APK 该怎么做？</span>
+                    <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
+                    </svg>
+                </button>
+                <div id="qa-body-6" class="accordion-body">
+                    <div class="accordion-content">
+                        <p>当游戏版本更新时，需要重新安装修补版 APK。步骤如下：</p>
+                        <p><strong>1. 卸载旧版本：</strong>先卸载当前安装的游戏本体 APK（<strong>不要卸载 Localify 插件</strong>）。</p>
+                        <p><strong>2. 下载新版 APK：</strong>前往本站 <a href="#download">下载页面</a>，下载最新版本的修补版游戏本体 APK。</p>
+                        <p><strong>3. 安装新版本：</strong>安装下载的新版 APK，允许覆盖安装。</p>
+                        <p><strong>4. 更新翻译资源：</strong>打开 Localify 插件，点击「获取最新翻译资源」按钮更新。</p>
+                        <p><strong>注意：</strong>更新前建议做好游戏数据备份（如已绑定账号则无需担心）。</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -708,6 +918,27 @@
                 alert('复制失败，请手动复制: ' + number);
             });
         }
+
+        // Q&A 手风琴功能
+        (function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    const targetId = this.getAttribute('aria-controls');
+                    const targetBody = document.getElementById(targetId);
+                    
+                    // 切换当前项
+                    this.setAttribute('aria-expanded', !expanded);
+                    if (expanded) {
+                        targetBody.classList.remove('show');
+                    } else {
+                        targetBody.classList.add('show');
+                    }
+                });
+            });
+        })();
     </script>
 
 </body>

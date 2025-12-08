@@ -130,6 +130,23 @@
     var s = document.createElement('script');
     s.src = 'shared/header.js';
     document.body.appendChild(s);
+
+    // 等待头部加载完成后，添加导航栏点击事件
+    s.onload = function() {
+      setTimeout(function() {
+        var navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(function(link) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var href = this.getAttribute('href');
+            if (href.startsWith('#')) {
+              // 跳转到主页并定位到相应锚点
+              window.location.href = 'index.html' + href;
+            }
+          });
+        });
+      }, 100);
+    };
   })();
   // 轻量灯箱，用于放大查看图片（与主站一致）
   (function(){

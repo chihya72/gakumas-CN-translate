@@ -16,9 +16,10 @@
     '  <div class="nav-container">\n' +
     '    <div class="brand"><a href="index.html">学园偶像大师汉化</a></div>\n' +
     '    <nav class="nav-links">\n' +
-    '      <a href="index.html#intro">介绍</a>\n' +
-    '      <a href="index.html#download">下载</a>\n' +
-    '      <a href="index.html#community">交流</a>\n' +
+    '      <a href="#intro">介绍</a>\n' +
+    '      <a href="#download">下载</a>\n' +
+    '      <a href="#qa">Q&A</a>\n' +
+    '      <a href="#community">交流</a>\n' +
     '    </nav>\n' +
     '  </div>\n' +
     '</header>';
