@@ -40,7 +40,6 @@
             text-align: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             border-bottom: 3px solid var(--primary-color);
-            margin-top: var(--header-height); /* 为固定的导航栏留出空间 */
         }
 
         .version-banner-content {
@@ -49,13 +48,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
-        }
-
-        .version-icon {
-            font-size: 1.5rem;
-            animation: pulse 2s ease-in-out infinite;
         }
 
         @keyframes pulse {
@@ -67,6 +61,9 @@
             font-size: 1.1rem;
             color: var(--text-dark);
             font-weight: 500;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
         }
 
         .version-text .version-number {
@@ -78,13 +75,17 @@
         .version-download-btn {
             background-color: var(--primary-color);
             color: white;
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 20px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            white-space: nowrap;
+            line-height: 1;
         }
 
         .version-download-btn:hover {
@@ -306,12 +307,6 @@
             transform: translateY(-5px);
         }
 
-        .version-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
         .download-group {
             width: 100%;
             margin-top: 1.5rem;
@@ -521,7 +516,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 1rem;
-            transition: background-color 0.2s;
+            transition: background-color 0.3s ease;
             font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
         }
 
@@ -543,7 +538,7 @@
             width: 1.25rem;
             height: 1.25rem;
             flex-shrink: 0;
-            transition: transform 0.3s;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             color: var(--text-dark);
         }
 
@@ -554,12 +549,14 @@
         .accordion-body {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
             border-top: 1px solid #ddd;
+            opacity: 0;
         }
 
         .accordion-body.show {
-            max-height: 1000px;
+            max-height: 2000px;
+            opacity: 1;
         }
 
         .accordion-content {
@@ -643,9 +640,8 @@
     <!-- NOTE: 更新版本信息 - 修改下方 <span class="version-number"> 标签内的文本即可 -->
     <section class="version-banner">
         <div class="version-banner-content">
-            <span class="version-icon">🎉</span>
             <div class="version-text">
-                最新资源更新至 <span class="version-number">25.12.08 葛城莉莉娅 atmosphere 卡池及强化月活动</span>
+                最新资源更新至 <span class="version-number">25.12.08 葛城莉莉娅Atmosphere卡池 及 强化月活动 等</span>
             </div>
             <a href="#download" class="version-download-btn">立即下载</a>
         </div>
@@ -731,7 +727,7 @@
             <!-- 问题1 -->
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-1">
-                    <span class="accordion-question">为什么我的一些非凡卡是空白的呢？</span>
+                    <span class="accordion-question">Q1. 为什么我的一些非凡卡是空白的呢？</span>
                     <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
                     </svg>
@@ -753,7 +749,7 @@
             <!-- 问题2 -->
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-2">
-                    <span class="accordion-question">有 iOS/鸿蒙 版插件吗？</span>
+                    <span class="accordion-question">Q2. 有 iOS/鸿蒙 版插件吗？</span>
                     <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
                     </svg>
@@ -772,7 +768,7 @@
             <!-- 问题3 -->
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-3">
-                    <span class="accordion-question">PC 版在哪里下载？</span>
+                    <span class="accordion-question">Q3. PC 版在哪里下载？</span>
                     <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
                     </svg>
@@ -791,7 +787,7 @@
             <!-- 问题4 -->
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-4">
-                    <span class="accordion-question">为什么进游戏一直 Loading？</span>
+                    <span class="accordion-question">Q4. 为什么进游戏一直 Loading？</span>
                     <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
                     </svg>
@@ -810,7 +806,7 @@
             <!-- 问题5 -->
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-5">
-                    <span class="accordion-question">PC 版的黑色弹窗可以隐藏吗？</span>
+                    <span class="accordion-question">Q5. PC 版的黑色弹窗可以隐藏吗？</span>
                     <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
                     </svg>
@@ -827,7 +823,7 @@
             <!-- 问题6 -->
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-6">
-                    <span class="accordion-question">安卓版如果需要更新 APK 该怎么做？</span>
+                    <span class="accordion-question">Q6. 安卓版如果需要更新 APK 该怎么做？</span>
                     <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
                     </svg>
@@ -892,18 +888,29 @@
             <div class="group-box">
                 <h3 style="margin-top: 0;">加入群聊</h3>
                 <p style="font-size: 0.9rem; color: #666;">反馈BUG或吹水交流 (入群请注明来源)</p>
+                <p style="font-size: 0.85rem; color: #ff6b6b; background: #fff5f5; padding: 0.5rem; border-radius: 5px; margin-bottom: 1rem;">
+                    ⚠️ <strong>注意：</strong>1群目前已满人；2群无法直接用QQ号搜索，请使用中转群进入
+                </p>
                 
                 <div class="group-item">
-                    <span class="group-name">1群 初星高等职业技术学院教务处</span>
-                    <span class="group-id" onclick="copyGroupNumber('975854705', this)">975854705</span>
+                    <span class="group-name">1群</span>
+                    <div>
+                        <span class="group-id" onclick="copyGroupNumber('975854705', this)">975854705</span>
+                        <span style="color: #999; font-size: 0.85rem; margin-left: 0.5rem; display: inline-block; width: 4.5rem; text-align: right;">（已满）</span>
+                    </div>
                 </div>
                 <div class="group-item">
-                    <span class="group-name">2群 初星学院学历提升中心</span>
-                    <span class="group-id" onclick="copyGroupNumber('366734369', this)">366734369</span>
+                    <span class="group-name">2群</span>
+                    <div>
+                        <span class="group-id" onclick="copyGroupNumber('487339162', this)">487339162</span>
+                        <span style="color: #999; font-size: 0.85rem; margin-left: 0.5rem; display: inline-block; width: 4.5rem; text-align: right;">（需中转）</span>
+                    </div>
                 </div>
                 <div class="group-item">
-                    <span class="group-name">3群 待定</span>
-                    <span class="group-id" onclick="copyGroupNumber(' ', this)"></span>
+                    <span class="group-name">3群</span>
+                    <div>
+                        <span style="color: #999; font-size: 0.9rem; display: inline-block; width: 4.5rem; text-align: right;">（待定）</span>
+                    </div>
                 </div>
                 
                 <div style="margin-top: 20px; padding-top: 15px; border-top: 2px solid #eee;">
@@ -1020,16 +1027,32 @@
             
             accordionHeaders.forEach(header => {
                 header.addEventListener('click', function() {
-                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
                     const targetId = this.getAttribute('aria-controls');
                     const targetBody = document.getElementById(targetId);
                     
-                    // 切换当前项
-                    this.setAttribute('aria-expanded', !expanded);
-                    if (expanded) {
+                    // 如果当前项已展开，则收起它
+                    if (isExpanded) {
+                        this.setAttribute('aria-expanded', 'false');
+                        targetBody.style.maxHeight = '0';
                         targetBody.classList.remove('show');
                     } else {
+                        // 关闭所有其他已展开的项
+                        accordionHeaders.forEach(otherHeader => {
+                            if (otherHeader !== this && otherHeader.getAttribute('aria-expanded') === 'true') {
+                                const otherId = otherHeader.getAttribute('aria-controls');
+                                const otherBody = document.getElementById(otherId);
+                                otherHeader.setAttribute('aria-expanded', 'false');
+                                otherBody.style.maxHeight = '0';
+                                otherBody.classList.remove('show');
+                            }
+                        });
+                        
+                        // 展开当前项
+                        this.setAttribute('aria-expanded', 'true');
                         targetBody.classList.add('show');
+                        // 设置实际高度以实现平滑过渡
+                        targetBody.style.maxHeight = targetBody.scrollHeight + 'px';
                     }
                 });
             });
