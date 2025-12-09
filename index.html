@@ -32,6 +32,66 @@
 
         /* 导航栏样式由 shared/header.css 提供，移除本页重复样式以确保一致 */
 
+        /* 最新版本信息横幅 */
+        .version-banner {
+            background: linear-gradient(135deg, #ffe0b2 0%, #ffcc80 100%);
+            padding: 1rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--primary-color);
+            margin-top: 60px; /* 为固定的导航栏留出空间 */
+        }
+
+        .version-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .version-icon {
+            font-size: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .version-text {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .version-text .version-number {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.15rem;
+        }
+
+        .version-download-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .version-download-btn:hover {
+            background-color: #e67e00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
         /* 顶部大图 (Hero Section) */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('intro_pic.webp') no-repeat center center/cover;
@@ -548,12 +608,46 @@
             .step-number {
                 margin-bottom: 1rem;
             }
+            
+            /* 版本横幅响应式 */
+            .version-banner {
+                padding: 0.8rem 1rem;
+            }
+            
+            .version-banner-content {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .version-text {
+                font-size: 0.95rem;
+            }
+            
+            .version-text .version-number {
+                font-size: 1rem;
+            }
+            
+            .version-download-btn {
+                padding: 0.4rem 1.2rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <div id="site-header"></div>
+
+    <!-- 最新汉化资源版本信息 -->
+    <section class="version-banner">
+        <div class="version-banner-content">
+            <span class="version-icon">🎉</span>
+            <div class="version-text">
+                最新资源更新至 <span class="version-number">25.12.08 葛城莉莉娅 atmosphere 卡池及强化月活动</span>
+            </div>
+            <a href="#download" class="version-download-btn">立即下载</a>
+        </div>
+    </section>
 
     <!-- 首页大图区域 -->
     <section class="hero">
