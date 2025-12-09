@@ -12,6 +12,7 @@
             --text-light: #666;
             --white: #ffffff;
             --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --header-height: 60px; /* 导航栏高度 */
             
             /* 品牌颜色定义 */
             --baidu-color: #06a7ff;
@@ -39,7 +40,7 @@
             text-align: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             border-bottom: 3px solid var(--primary-color);
-            margin-top: 60px; /* 为固定的导航栏留出空间 */
+            margin-top: var(--header-height); /* 为固定的导航栏留出空间 */
         }
 
         .version-banner-content {
@@ -87,7 +88,7 @@
         }
 
         .version-download-btn:hover {
-            background-color: #e67e00;
+            background-color: #e67e00; /* 稍深的橙色 */
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
@@ -639,6 +640,7 @@
     <div id="site-header"></div>
 
     <!-- 最新汉化资源版本信息 -->
+    <!-- NOTE: 更新版本信息 - 修改下方 <span class="version-number"> 标签内的文本即可 -->
     <section class="version-banner">
         <div class="version-banner-content">
             <span class="version-icon">🎉</span>
