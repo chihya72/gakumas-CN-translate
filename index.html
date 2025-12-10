@@ -796,31 +796,12 @@
             <!-- 问题4 -->
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-4">
-                    <span class="accordion-question">Q4. 为什么进游戏一直 Loading？</span>
+                    <span class="accordion-question">Q4. PC 版的黑色弹窗可以隐藏吗？</span>
                     <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
                     </svg>
                 </button>
                 <div id="qa-body-4" class="accordion-body">
-                    <div class="accordion-content">
-                        <p>游戏启动时无限 Loading 的常见原因和解决方法：</p>
-                        <p><strong>1. 网络问题：</strong>游戏需要连接日本服务器，建议使用稳定的加速器或代理。</p>
-                        <p><strong>2. 正在更新游戏资源：</strong>游戏启动时会自动连接服务器检查更新。当有新内容发布时，会在 Loading 界面下载资源，此时请耐心等待下载完成。</p>
-                        <p><strong>3. 游戏进程卡住：</strong>游戏本身可能出现卡顿。<strong>PC 版</strong>直接关闭游戏重新启动即可；<strong>安卓版</strong>需要在后台完全关闭游戏进程（从最近任务中划掉），然后重新打开游戏。</p>
-                        <p>如问题仍未解决，请加入 <a href="#community">交流群</a> 寻求帮助。</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 问题5 -->
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-5">
-                    <span class="accordion-question">Q5. PC 版的黑色弹窗可以隐藏吗？</span>
-                    <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
-                    </svg>
-                </button>
-                <div id="qa-body-5" class="accordion-body">
                     <div class="accordion-content">
                         <p>可以的！PC 版启动时的黑色控制台窗口（命令行窗口）可以隐藏。</p>
                         <p><strong>方法：</strong>打开游戏根目录下的 <code>gakumas-local/config.json</code> 文件，找到 <code>"enableConsole"</code> 配置项，将值改为 <code>false</code>，保存后重启游戏。</p>
@@ -829,28 +810,69 @@
                 </div>
             </div>
 
+            <!-- 问题5 -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-5">
+                    <span class="accordion-question">Q5. 为什么安卓版进不去游戏？</span>
+                    <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
+                    </svg>
+                </button>
+                <div id="qa-body-5" class="accordion-body">
+                    <div class="accordion-content">
+                        <p><strong>如果游戏启动时一直 Loading：</strong></p>
+                        <p><strong>1. 网络问题：</strong>游戏需要连接日本服务器，建议使用稳定的加速器或代理。</p>
+                        <p><strong>2. 正在更新游戏资源：</strong>游戏启动时会自动连接服务器检查更新。当有新内容发布时，会在 Loading 界面下载资源，此时请耐心等待下载完成。</p>
+                        <p><strong>3. 游戏进程卡住：</strong>游戏本身可能出现卡顿。需要在后台完全关闭游戏进程（从最近任务中划掉），然后重新打开游戏。</p>
+                        <p style="margin-top: 1rem;"><strong>如果弹窗提示"通信错误 是否重试？(ERR_AM_FIREBASE_INIT_FAIL)"：</strong></p>
+                        <p>说明手机没有谷歌服务框架，需要搜索自己机型开启谷歌服务框架的教程。</p>
+                        <p style="margin-top: 1rem;">如果问题仍未解决，请加入 <a href="#community">交流群</a> 寻求帮助。</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- 问题6 -->
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-6">
-                    <span class="accordion-question">Q6. 安卓版如果需要更新 APK 该怎么做？</span>
+                    <span class="accordion-question">Q6. 安卓版如果需要更新时该怎么做？</span>
                     <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
                     </svg>
                 </button>
                 <div id="qa-body-6" class="accordion-body">
                     <div class="accordion-content">
-                        <p>当游戏版本更新时，按照以下步骤操作即可：</p>
+                        <p><strong>当游戏版本更新时：</strong></p>
                         <p><strong>1. 下载最新版 APK：</strong>前往本站 <a href="#download">下载页面</a>，下载最新版本的修补版游戏本体 APK。</p>
                         <p><strong>2. 覆盖安装：</strong>直接安装下载的新版 APK，允许覆盖安装即可。<strong>无需卸载任何软件。</strong></p>
                         <p><strong>3. 更新翻译资源：</strong>打开 Localify 插件，点击「从服务器检查热更新资源」按钮更新。</p>
-                        <p style="color: #999; font-size: 0.9rem;">💡 <strong>注意：</strong>请勿卸载游戏或插件，卸载会导致已下载的游戏资源丢失，需要重新下载。</p>
+                        <p style="margin-top: 1rem;"><strong>当插件版本更新时：</strong></p>
+                        <p><strong>1. 卸载旧版插件：</strong>在手机设置中找到 Localify 插件并卸载。</p>
+                        <p><strong>2. 下载最新版插件：</strong>前往本站 <a href="#download">下载页面</a>，下载最新版本的插件 APK。</p>
+                        <p><strong>3. 安装新版插件：</strong>直接安装下载的新版插件 APK 即可。</p>
+                        <p style="color: #999; font-size: 0.9rem;">💡 <strong>注意：</strong>卸载插件并重装是为了保证汉化资源不出现错乱，游戏本体不会受到影响。请勿卸载游戏，卸载会导致已下载的游戏资源丢失，需要重新下载。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 问题7 -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-7">
+                    <span class="accordion-question">Q7. 为什么安卓版使用「从服务器检查热更新资源」后，游戏变成英文了？</span>
+                    <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
+                    </svg>
+                </button>
+                <div id="qa-body-7" class="accordion-body">
+                    <div class="accordion-content">
+                        <p>因为手机系统语言不是简体中文，被自动定位到了英语本地化仓库。</p>
+                        <p><strong>解决方法：</strong>需要手动将 API 地址修改为：<code>https://uma.chinosk6.cn/api/gkms_trans_data</code></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 鸣谢与交流区域 (新增) -->
+    <!-- 鸣谢与交流区域 -->
     <section id="community" class="container fade-in-up" style="background-color: #f4f4f4; border-radius: 20px;">
         <h2>鸣谢与交流</h2>
         
@@ -863,6 +885,18 @@
                     <div style="margin-top: 15px;">
                         <a href="https://github.com/chinosk6" target="_blank" class="btn btn-github">
                             🔧 访问 GitHub 仓库
+                        </a>
+                        <a href="https://space.bilibili.com/287061163" target="_blank" class="btn btn-bili" style="margin-left: 10px;">
+                            📺 访问 Bilibili 主页
+                        </a>
+                    </div>
+                    <p style="margin-top: 20px;">感谢 <strong>DarwinTree</strong> 开发汉化插件的自动化工作流以及AI辅助翻译的工作流！</p>
+                    <div style="margin-top: 15px;">
+                        <a href="https://github.com/darwintree" target="_blank" class="btn btn-github">
+                            🔧 访问 GitHub 仓库
+                        </a>
+                        <a href="https://space.bilibili.com/6069705" target="_blank" class="btn btn-bili" style="margin-left: 10px;">
+                            📺 访问 Bilibili 主页
                         </a>
                     </div>
                     <p style="margin-top: 20px;">感谢 <strong>学园偶像大师同好会</strong> 提供高质量的剧情翻译支持！</p>
