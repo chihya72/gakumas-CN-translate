@@ -92,28 +92,39 @@
 
 <hr style="margin: 3rem 0; border: none; border-top: 2px dashed #ddd;">
 
-<h1 style="margin-top: 2rem;">开启图片替换汉化</h1>
+<h1 style="margin-top: 2rem;">贴图替换资源更新</h1>
 <p class="note" style="background:#fff3cd;padding:1rem;border-left:4px solid #ffc107;border-radius:5px;margin-bottom:1.5rem">
-  <strong>⚠️ 特别注意：</strong>图片替换功能为<strong>实验性功能</strong>，可能会导致游戏卡顿、加载缓慢或其他性能问题。<br>
-  如遇到游戏运行不流畅的情况，建议关闭此功能。<strong>非必要情况下不建议开启。</strong>
+  <strong>⚠️ 特别注意：</strong>贴图替换会改变游戏画面中的部分图片素材。若需要使用 MaaGakumasu 等依赖画面识别的自动化工具，请先关闭贴图替换功能，避免影响识别。
 </p>
 
 <div class="step">
-  <span class="step-num">SP1</span><span class="step-title">打开配置文件</span>
-  <p>打开游戏根目录下的 <strong>gakumas-local</strong> 文件夹，找到 <code>localizationConfig.json</code> 并用记事本或其他文本编辑器打开。</p>
-  <div class="step-img-placeholder"><img src="tutorial_pc/sp1.png" alt="打开配置文件"></div>
+  <span class="step-num">6</span><span class="step-title">打开插件控制台</span>
+  <p>等待游戏完全加载后，按下 <kbd>Ctrl + U</kbd> 组合键，打开 <strong>Gakumas Config GUI</strong> 插件控制台。确认基础设置中的 <strong>替换贴图</strong> 已勾选。</p>
+  <div class="step-img-placeholder"><img src="PC新功能/1.png" alt="打开插件控制台"></div>
 </div>
 
 <div class="step">
-  <span class="step-num">SP2</span><span class="step-title">修改配置项</span>
-  <p>在 <code>localizationConfig.json</code> 的最后一行找到 <code>"enableTextureReplace"</code>，将值从 <code>false</code> 修改为 <code>true</code> 并保存文件。重新启动游戏即可开启图片替换功能。</p>
-  <div class="step-img-placeholder"><img src="tutorial_pc/sp2.png" alt="修改配置"></div>
+  <span class="step-num">7</span><span class="step-title">展开资源设置</span>
+  <p>点击 <strong>资源设置</strong> 展开菜单。这里可以检查普通翻译资源，也可以检查贴图替换资源。</p>
+  <div class="step-img-placeholder"><img src="PC新功能/2.png" alt="展开资源设置"></div>
 </div>
 
 <div class="step">
-  <span class="step-num">SP3</span><span class="step-title">功能对比</span>
-  <p>下图为开启图片替换功能前后的对比效果。开启后，游戏内的部分图片将替换为中文版本。</p>
-  <div class="step-img-placeholder"><img src="tutorial_pc/sp3.png" alt="功能对比"></div>
+  <span class="step-num">8</span><span class="step-title">检查贴图资源更新</span>
+  <p>勾选 <strong>从服务器检查贴图资源更新</strong>，确认 <strong>替换文件后删除下载缓存</strong> 保持开启，然后点击贴图 API 地址旁边的 <strong>检查更新</strong>。</p>
+  <div class="step-img-placeholder"><img src="PC新功能/3.png" alt="检查贴图资源更新"></div>
+</div>
+
+<div class="step">
+  <span class="step-num">9</span><span class="step-title">确认更新弹窗</span>
+  <p>出现贴图资源更新弹窗后，确认版本信息无误，点击 <strong>确定</strong> 开始下载。下载过程中请不要关闭游戏或插件控制台。</p>
+  <div class="step-img-placeholder"><img src="PC新功能/4.png" alt="确认贴图资源更新"></div>
+</div>
+
+<div class="step">
+  <span class="step-num">10</span><span class="step-title">等待下载完成</span>
+  <p>当插件日志中出现 <code>Texture update completed.</code> 时，说明贴图资源已经下载并安装完成。重新启动游戏后即可使用贴图替换效果。</p>
+  <div class="step-img-placeholder"><img src="PC新功能/5.png" alt="贴图资源更新完成"></div>
 </div>
 
 <a class="back" href="index.html">← 返回主页</a>
