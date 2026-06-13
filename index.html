@@ -22,6 +22,16 @@
             --github-color: #24292e; /* GitHub黑色 */
         }
 
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
             margin: 0;
@@ -580,6 +590,11 @@
             text-decoration: underline;
         }
 
+        .accordion-content code {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
         /* 页脚 */
         footer {
             background-color: #333;
@@ -640,6 +655,45 @@
                 width: 100%;
                 max-width: 200px;
             }
+
+            .hero {
+                height: auto;
+                min-height: 520px;
+                padding: 3rem 1rem;
+                background-position: center center;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+                line-height: 1.25;
+                margin: 0 0 1rem;
+                word-break: keep-all;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                line-height: 1.6;
+                margin: 0 0 1.5rem;
+            }
+
+            .btn-main {
+                max-width: 100%;
+                white-space: normal;
+            }
+
+            .download-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 1.5rem 1rem;
+            }
         }
     </style>
 </head>
@@ -652,7 +706,7 @@
     <section class="version-banner">
         <div class="version-banner-content">
             <div class="version-text">
-                <span class="version-number">安卓及iOS游戏本体3.0.3已更新</span>
+                <span class="version-number">PC、安卓及iOS汉化插件3.4.0已更新，安卓及iOS游戏本体3.1.0已更新</span>
             </div>
             <a href="#download" class="version-download-btn">立即下载</a>
         </div>
@@ -702,7 +756,7 @@
                 <span class="version-icon">💻</span>
                 <h3>PC (DMM版) 汉化</h3>
                 <p>适用于 DMM Player 版本的插件</p>
-                <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">插件版本：v3.3.1</p>
+                <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">插件版本：v3.4.0</p>
                 
                 <div class="download-group">
                     <p style="margin:0; color:#666; font-size:0.9rem;">&emsp; 注意：PC版需下载<strong>插件本体</strong>以及<strong>资源更新</strong>！&emsp; &emsp; &emsp; &emsp; </p>
@@ -720,7 +774,7 @@
                 <span class="version-icon">📱</span>
                 <h3>安卓版 汉化</h3>
                 <p>适用于安卓移动端的插件</p>
-                <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">游戏版本：v3.0.3 | 插件版本：v3.3.1</p>
+                <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">游戏版本：v3.1.0 | 插件版本：v3.4.0</p>
 
                 <div class="download-group">
                     <p style="margin:0; color:#666; font-size:0.9rem;">注意：安卓版需安装<strong>两个APK</strong>（插件 + 修补版游戏本体）！</p>
@@ -730,6 +784,7 @@
                     <a href="https://www.123865.com/s/eTUnvd-DweDH?pwd=YbTd#" target="_blank" class="btn btn-ali">123云盘下载（备用2）</a>
                     <a href="https://mega.nz/folder/GBFzwCiJ#H7qq1-vri88tT254QL_lyQ" target="_blank" class="btn btn-mega">MEGA下载（繁體中文版）</a>
                     <a href="tutorial_android.html" class="btn btn-main" style="width:auto; margin-top:10px;">📘 查看安卓安装教程</a>
+                    <a href="tutorial_emulator.html" class="btn btn-main" style="width:auto; margin-top:10px;">🖥️ 查看模拟器安装教程</a>
                 </div>
             </div>
 
@@ -737,8 +792,8 @@
             <div class="card" style="opacity: 0.85;">
                 <span class="version-icon">🍎</span>
                 <h3>iOS版 汉化</h3>
-                <p>适用于 iOS/iPadOS 17~26.3 的插件</p>
-                <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">游戏版本：v3.0.3 | 插件版本：v3.2.0 Beta 3</p>
+                <p>适用于 iOS/iPadOS 17~26 的插件</p>
+                <p style="color: #666; font-size: 0.9rem; line-height: 1.4;">游戏版本：v3.1.0 | 插件版本：v3.4.0</p>
 
                 <div class="download-group">
                     <p style="margin:0; color:#666; font-size:0.9rem;">注意：iOS版每次版本更新时都需要导入<strong>对应版本的汉化模块</strong>！</p>
@@ -760,18 +815,18 @@
             <!-- 问题1 -->
             <div class="accordion-item">
                 <button class="accordion-header" aria-expanded="false" aria-controls="qa-body-1">
-                    <span class="accordion-question">Q1. 为什么我的一些非凡卡是空白的呢？</span>
+                    <span class="accordion-question">Q1. 更新汉化资源后文本描述错乱怎么办？</span>
                     <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/>
                     </svg>
                 </button>
                 <div id="qa-body-1" class="accordion-body">
                     <div class="accordion-content">
-                        <p>这是由于官方在 2025 年 7 月更新中修改了部分非凡卡的技能描述，导致<strong>安卓旧版插件</strong>出现显示异常。<strong>新下载的插件不会有此问题。</strong></p>
-                        <p><strong>解决方法：</strong></p>
-                        <p>1. 卸载手机上<strong>旧版</strong>的 Localify 插件。<strong>注意：请勿卸载游戏本体</strong>，避免游戏数据丢失。</p>
-                        <p>2. 在本站 <a href="#download">下载页面</a> 获取并安装 v3.3.1 版本的<strong>新版插件</strong>。</p>
-                        <p>3. 下载对应的 v3.0.3 版本<strong>修补版游戏本体</strong>，直接<strong>覆盖安装</strong>即可解决问题。</p>
+                        <p>针对目前出现的更新汉化资源后，各种文本描述仍旧出现错乱的情况，下面是临时解决方法：</p>
+                        <p>1. 勾选<strong>「清除游戏目录内的插件资源」</strong>，启动游戏后关闭。</p>
+                        <p>2. 将热更新的 API 地址替换为：<code>https://api.github.com/repos/NatsumeLS/Gakumas-Translation-Data-EN/releases/latest</code>，启动游戏，确认游戏翻译变成英语后，关闭游戏。</p>
+                        <p>3. 再次勾选<strong>「清除游戏目录内的插件资源」</strong>，启动游戏后关闭。</p>
+                        <p>4. 将热更新的 API 地址还原回：<code>https://uma.chinosk6.cn/api/gkms_trans_data</code>，启动游戏，文本描述正常。</p>
                     </div>
                 </div>
             </div>
